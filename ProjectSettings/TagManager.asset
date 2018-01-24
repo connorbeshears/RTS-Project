@@ -8,6 +8,7 @@ TagManager:
   - GreenUnit
   - RedBuilding
   - GreenBuilding
+  - UI
   layers:
   - Default
   - TransparentFX

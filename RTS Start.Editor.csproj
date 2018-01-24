@@ -282,6 +282,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="RTS Start.csproj">
+      <Project>{A2B6F3EB-C730-9979-F428-6935AEB4AF6E}</Project>
+      <Name>RTS Start</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\TextureAtlasSlicer\Editor\TextureAtlasSlicer.cs" />
   </ItemGroup>
   <ItemGroup>
