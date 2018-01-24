@@ -5,6 +5,7 @@ using UnityEngine;
 public class GreenMove : MonoBehaviour {
     GameObject friend;
     GameObject enemy;
+    NewBehaviourScript enemyScript;
     public double health = 100;
     bool hasTarget;
     public float move = 0.4f;
@@ -13,6 +14,7 @@ public class GreenMove : MonoBehaviour {
     void Start()
     {
         enemy = GameObject.FindGameObjectWithTag("RedUnit");
+        enemyScript = enemy.GetComponent<NewBehaviourScript>();
         hasTarget = true;
 
     }
@@ -23,7 +25,7 @@ public class GreenMove : MonoBehaviour {
         if (enemy != null)
         {
             enemyLocation = new Vector3(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z);
-            if (Vector3.Distance(enemyLocation, transform.position) > 0.5f)
+            if (Vector3.Distance(enemyLocation, transform.position) > 0.3f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, enemyLocation, move * Time.deltaTime);
             }
@@ -31,7 +33,7 @@ public class GreenMove : MonoBehaviour {
 
             if (Vector3.Distance(enemyLocation, transform.position) < 0.7f)
             {
-                health -= 2;
+                enemyScript.health -= 2;
             }
         }
 
@@ -43,6 +45,8 @@ public class GreenMove : MonoBehaviour {
         if(enemy == null)
         {
             enemy = GameObject.FindGameObjectWithTag("RedUnit");
+            enemyScript = enemy.GetComponent<NewBehaviourScript>();
+
         }
     }
 }

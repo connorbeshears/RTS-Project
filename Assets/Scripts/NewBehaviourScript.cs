@@ -5,15 +5,18 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour {
     GameObject friend;
     GameObject enemy;
+    GreenMove enemyScript;
     public double health = 100;
-    bool hasTarget;
-    public float move = 0.4f;
+    //bool hasTarget;
+    public float move;
     Vector3 enemyLocation;
     // Use this for initialization
     void Start()
     {
         enemy = GameObject.FindGameObjectWithTag("GreenUnit");
-        hasTarget = true;
+        enemyScript = enemy.GetComponent<GreenMove>();
+        //hasTarget = true;
+        move = Random.Range(0.5f, 1.0f);
 
     }
 
@@ -23,7 +26,7 @@ public class NewBehaviourScript : MonoBehaviour {
         if (enemy != null)
         {
             enemyLocation = new Vector3(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z);
-            if (Vector3.Distance(enemyLocation, transform.position) > 0.5f)
+            if (Vector3.Distance(enemyLocation, transform.position) > 0.3f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, enemyLocation, move * Time.deltaTime);
             }
@@ -31,7 +34,7 @@ public class NewBehaviourScript : MonoBehaviour {
 
             if (Vector3.Distance(enemyLocation, transform.position) < 0.7f)
             {
-                health -= 2;
+                enemyScript.health -= 2;
             }
         }
 
@@ -43,6 +46,8 @@ public class NewBehaviourScript : MonoBehaviour {
         if (enemy == null)
         {
             enemy = GameObject.FindGameObjectWithTag("GreenUnit");
+            enemyScript = enemy.GetComponent<GreenMove>();
+
         }
     }
 }

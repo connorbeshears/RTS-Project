@@ -6,6 +6,7 @@ public class AISpawn : MonoBehaviour {
     public GameObject Spawn;
     public float chance = .1f;
     GameObject[] enemies;
+    GameObject[] friends;
     int numEnemies = 0;
     float buff;
     float randNum;
@@ -16,6 +17,7 @@ public class AISpawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         enemies = GameObject.FindGameObjectsWithTag("RedUnit");
+        friends = GameObject.FindGameObjectsWithTag("GreenUnit");
         numEnemies = enemies.Length;
 
         chance = numEnemies / 1000f;
@@ -27,6 +29,10 @@ public class AISpawn : MonoBehaviour {
             spawnUnit();
         }
 
+        if(friends.Length < 1)
+        {
+            spawnUnit();
+        }
     
 
 	}

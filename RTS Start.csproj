@@ -282,10 +282,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AISpawn.cs" />
-    <Compile Include="Assets\ButtonSpawn.cs" />
-    <Compile Include="Assets\GreenMove.cs" />
-    <Compile Include="Assets\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\AISpawn.cs" />
+    <Compile Include="Assets\Scripts\ButtonSpawn.cs" />
+    <Compile Include="Assets\Scripts\GreenMove.cs" />
+    <Compile Include="Assets\Scripts\Mouse.cs" />
+    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Spritesheet\medievalRTS_spritesheet.xml" />
