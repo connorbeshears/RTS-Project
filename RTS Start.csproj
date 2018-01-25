@@ -285,6 +285,7 @@
     <Compile Include="Assets\Scripts\AISpawn.cs" />
     <Compile Include="Assets\Scripts\ButtonSpawn.cs" />
     <Compile Include="Assets\Scripts\GreenMove.cs" />
+    <Compile Include="Assets\Scripts\HeadingScript.cs" />
     <Compile Include="Assets\Scripts\Mouse.cs" />
     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
   </ItemGroup>

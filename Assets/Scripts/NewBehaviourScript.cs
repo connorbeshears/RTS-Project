@@ -6,6 +6,7 @@ public class NewBehaviourScript : MonoBehaviour {
     GameObject friend;
     GameObject enemy;
     GreenMove enemyScript;
+    public double damage;
     public double health = 100;
     //bool hasTarget;
     public float move;
@@ -25,16 +26,26 @@ public class NewBehaviourScript : MonoBehaviour {
     {
         if (enemy != null)
         {
-            enemyLocation = new Vector3(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z);
-            if (Vector3.Distance(enemyLocation, transform.position) > 0.3f)
+
+            GameObject marker = GameObject.FindGameObjectWithTag("marker");
+            if (marker != null)
             {
-                transform.position = Vector3.MoveTowards(transform.position, enemyLocation, move * Time.deltaTime);
+                Vector3 markerLoc = marker.transform.position;
+                transform.position = Vector3.MoveTowards(transform.position, markerLoc, move * Time.deltaTime);
             }
 
-
-            if (Vector3.Distance(enemyLocation, transform.position) < 0.7f)
+            else
             {
-                enemyScript.health -= 2;
+                enemyLocation = new Vector3(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z);
+                if (Vector3.Distance(enemyLocation, transform.position) > 0.3f)
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, enemyLocation, move * Time.deltaTime);
+                }
+            }
+
+            if (Vector3.Distance(enemyLocation, transform.position) < 1.0f && Vector3.Distance(enemyLocation, transform.position) > -1.0f)
+            {
+                enemyScript.health -= damage;
             }
         }
 

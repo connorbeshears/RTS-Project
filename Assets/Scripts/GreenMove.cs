@@ -24,6 +24,7 @@ public class GreenMove : MonoBehaviour {
     {
         if (enemy != null)
         {
+            enemyScript = enemy.GetComponent<NewBehaviourScript>();
             enemyLocation = new Vector3(enemy.transform.position.x, enemy.transform.position.y, enemy.transform.position.z);
             if (Vector3.Distance(enemyLocation, transform.position) > 0.3f)
             {
@@ -31,7 +32,7 @@ public class GreenMove : MonoBehaviour {
             }
 
 
-            if (Vector3.Distance(enemyLocation, transform.position) < 0.7f)
+            if (Vector3.Distance(enemyLocation, transform.position) < 0.7f && Vector3.Distance(enemyLocation, transform.position) > -0.7f)
             {
                 enemyScript.health -= 2;
             }
@@ -45,8 +46,6 @@ public class GreenMove : MonoBehaviour {
         if(enemy == null)
         {
             enemy = GameObject.FindGameObjectWithTag("RedUnit");
-            enemyScript = enemy.GetComponent<NewBehaviourScript>();
-
         }
     }
 }
